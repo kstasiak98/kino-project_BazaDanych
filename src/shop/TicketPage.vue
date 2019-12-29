@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <v-card>
-          Zakupiłeś Bilety:<br/>
+          <h1>Zakupiłeś Bilety:</h1>
           <v-col v-for="(ticket, index) in cart" :key="index">
             <h3>Na film: <b>{{ticket.name}}</b></h3>
             Miejsce nr: {{ticket.id}} <br />
@@ -28,9 +28,6 @@ export default {
     cart() {
       return this.$store.state.cart;
     },
-  },
-  mounted() {
-    console.log('Tu jesteś');
   },
 };
 </script>
