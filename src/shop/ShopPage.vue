@@ -12,9 +12,16 @@
         <v-card>
           <h1>Nazwa: {{selectedFilm.name}}</h1>
           <h2>Koszt biletu: {{selectedFilm.cost}}</h2>
+          <span>DODANIE WYBORU SEANSU CZYLI DZIEN I GODZINA   </span>
         </v-card>
       </v-col>
-      <RoomPage></RoomPage>
+      <template v-if="selectedFilm">
+        <RoomPage
+          :placed="selectedFilm.places"
+          :reserved="selectedFilm.reservation"
+          :film="selectedFilm"
+        ></RoomPage>
+      </template>
     </v-row>
   </v-row>
 </template>

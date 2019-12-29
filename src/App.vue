@@ -13,6 +13,15 @@
           <v-divider vertical class="mx-2"></v-divider>
           <router-link class="nav-link" :to="{name: 'Login'}"
           >ZALOGUJ SIĘ</router-link>
+          <v-divider vertical class="mx-2"></v-divider>
+          <router-link class="nav-link" :to="{name: 'Store'}"
+          >WYBÓR BILETU</router-link>
+          <v-divider vertical class="mx-2"></v-divider>
+          <router-link class="nav-link" :to="{name: 'TICKET'}"
+          >KOSZYK</router-link>
+          <div class="cart-items">
+            {{cart.length}}
+          </div>
         </v-col>
       </v-layout>
     </v-app-bar>
@@ -28,6 +37,11 @@
 
 export default {
   name: 'App',
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+  },
 
   data: () => ({
     //
@@ -39,5 +53,16 @@ export default {
 .nav-link {
   text-decoration: none;
   color: inherit;
+}
+.cart-items{
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 100px;
+  background-color: mediumseagreen;
 }
 </style>

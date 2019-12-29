@@ -1,12 +1,12 @@
 <template>
   <v-btn
-  v-if="czyTak"
+  v-if="ifDisable"
   class="miejsce"
   height="48px"
   min-width="48px"
   elevation="0"
   @click="type=!type"
-  :color="type===false ? 'error' : '#f5f5f5'"
+  :color="type===false ? '#76FF03' : '#f5f5f5'"
   >{{buttonN}}
   </v-btn>
   <v-btn
@@ -23,7 +23,10 @@
 <script>
 export default {
   name: 'FpButton',
-  props: ['buttonN'],
+  props: {
+    buttonN: Number,
+    ifDisable: Boolean,
+  },
   data() {
     return {
       czyTak: true,

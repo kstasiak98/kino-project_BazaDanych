@@ -5,7 +5,6 @@
         <v-card sm12 class="card" >
           <h2>{{film.name}}</h2>
           <span>{{film.text}}</span>
-          <span>{{film.id}}</span>
           <v-footer absolute width="100%" class="vufooter">
             <v-btn v-model="selectedItem"
                    @click="getElementByID(film.id)">
