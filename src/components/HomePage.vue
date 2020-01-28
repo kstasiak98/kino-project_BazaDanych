@@ -26,10 +26,31 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HomePage',
-
+  computed: {
+    availableFilm() {
+      return this.$store.state.filmss;
+    },
+    UserOnline() {
+      return this.$store.state.userOnline;
+    },
+  },
+  mounted() {
+    if (this.UserOnline !== null) {
+      console.log(this.UserOnline);
+    } else {
+      console.log('USer is null');
+    }
+    axios.get('http://localhost:3000/all')
+      .then((response) => {
+        this.post = response.data;
+      });
+  },
   data: () => ({
+    post: null,
   }),
 };
 </script>

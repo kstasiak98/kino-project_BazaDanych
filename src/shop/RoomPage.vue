@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <span>Tu będzie dana sala i miejsca do wyboru</span>
+    {{SEANSseats}}
     <v-card align="center">
       <v-col cols="12">
         <v-btn-toggle
@@ -25,11 +26,17 @@
 </template>
 
 <script>
+import axios from 'axios';
 import FpButton from '../components/FpButton.vue';
 
 export default {
   name: 'RoomPage',
   components: { FpButton },
+  asyncData: {
+    SEANSseats() {
+      return axios.get('http://localhost:3000/filmID');
+    },
+  },
   data() {
     return {
       toggle_follow2: [],

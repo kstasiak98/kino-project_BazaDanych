@@ -6,6 +6,8 @@ import RepertoirePage2 from '../new-films/RepertoirePage2.vue';
 import ProfilePage from '../profile/ProfilePage.vue';
 import ShopPage from '../shop/ShopPage.vue';
 import TicketPage from '../shop/TicketPage.vue';
+import information1 from '../components/information1.vue';
+import information2 from '../components/information2.vue';
 
 Vue.use(Router);
 
@@ -36,5 +38,13 @@ export default new Router({
     path: '/store/ticket',
     name: 'TICKET',
     component: TicketPage,
+  }, {
+    path: '/information1',
+    name: 'information1',
+    component: information1,
+  }, {
+    path: '/information2',
+    name: 'information2',
+    component: information2,
   }],
 });

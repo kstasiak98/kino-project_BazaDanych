@@ -4,22 +4,21 @@
    <v-text-field
      v-model="login"
      label="Podaj login"></v-text-field>
-   {{login}}<br />
    <v-text-field
      v-model="email"
      label="Podaj email"></v-text-field>
-   {{email}}<br />
    <v-text-field
      v-model="password"
      :type="'password'"
      @click:append="showPassword = !showPassword"
      label="Podaj hasło"></v-text-field>
-   {{password}}<br />
-   <v-btn>ZAREJESTRUJ SIE</v-btn>
+   <v-btn @click="postPost">ZAREJESTRUJ SIE</v-btn>
  </v-card>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'RegisterPage',
   data() {
@@ -28,6 +27,17 @@ export default {
       email: '',
       password: '',
     };
+  },
+  methods: {
+    postPost() {
+      axios.post('http://localhost:3000/cart', {
+        login: this.login,
+        password: this.password,
+        email: this.email,
+      })
+        .then(() => console.log('POSZLO'));
+      this.$router.push('/information1');
+    },
   },
 };
 </script>
